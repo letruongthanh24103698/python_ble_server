@@ -1,0 +1,16 @@
+{
+    "name": "pathloss_home",
+    "id": "ABCDEF",
+    "data": {
+        "data1": {
+            "Mac": "ac:23:3f:a2:16:6c",
+            "value": [
+                -81,
+                -81,
+                -80,
+                -83,
+                -84
+            ]
+        }
+    }
+}
