@@ -25,7 +25,7 @@ class location:
     def __init__(self, tag, pathloss, ble_location, delta, calib, pathloss_location, tag_location, angle_ble, r1m):
         #print(dis_pathloss)
         if (tag_location is None):
-            self.Confined_Area_Radius = .0
+            self.Confined_Area_Radius = 10.0
             self.Number_Of_Swarm = 300
         else:
             self.Confined_Area_Radius = 3.0
@@ -43,7 +43,7 @@ class location:
         self.tag_loc=None
         self.dis_best=None
         self.tag_best=None
-        self.adjust_value=None
+        self.adjust_best=None
         self.adjust_value={}
 
         for idx in self.pathloss_loc:
