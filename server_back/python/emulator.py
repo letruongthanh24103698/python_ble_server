@@ -27,7 +27,7 @@ for data in cursor:
         json.dump(init_json,json_file)
     tmp=json.loads(process())
     init_json=tmp['json'][0]
-    if x['name']=='tag_home' and cnt>500:
+    if x['name']=='tag_home' and cnt>9200:
         with open('location_tag.kal.txt','w') as json_file:
             json.dump(tmp['json'][1],json_file)
         with open('location_pathloss.kal.txt','w') as json_file:

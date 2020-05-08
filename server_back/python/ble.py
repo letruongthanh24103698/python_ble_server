@@ -25,7 +25,7 @@ class location:
     def __init__(self, tag, pathloss, ble_location, delta, calib, pathloss_location, tag_location, angle_ble, r1m):
         #print(dis_pathloss)
         if (tag_location is None):
-            self.Confined_Area_Radius = 5.0
+            self.Confined_Area_Radius = .0
             self.Number_Of_Swarm = 300
         else:
             self.Confined_Area_Radius = 3.0
@@ -43,6 +43,7 @@ class location:
         self.tag_loc=None
         self.dis_best=None
         self.tag_best=None
+        self.adjust_value=None
         self.adjust_value={}
 
         for idx in self.pathloss_loc:
@@ -93,11 +94,11 @@ class location:
         #self.distance_tag=self.distance_temp
 
         self.tag_loc=tag_location
-        for idx in self.tag:
-            if self.tag[idx]<self.pathloss[idx]-0.5:
-                self.tag[idx]=self.tag[idx]+0.5
-            elif self.tag[idx]>self.pathloss[idx]+0.5:
-                self.tag[idx]=self.tag[idx]-0.5
+        #for idx in self.tag:
+        #    if self.tag[idx]<self.pathloss[idx]-0.5:
+        #        self.tag[idx]=self.tag[idx]+0.5
+        #    elif self.tag[idx]>self.pathloss[idx]+0.5:
+        #        self.tag[idx]=self.tag[idx]-0.5
 
     def cal_dis(self,a,b):
         tmp=math.sqrt(a**2+b**2)
@@ -266,7 +267,7 @@ class location:
             self.swarm.append(particle)
 
         #start timer
-        t = time.time()
+        #t = time.time()
 
 
         step = 0
@@ -281,7 +282,7 @@ class location:
             #thread2.join()
             self.validate(0,len(self.swarm))
             self.update(step)
-        print("done in:",time.time()-t)
+        #print("done in:",time.time()-t)
         ret={}
         ret['lat']=float(self.gbest_pos[1])*self.delta['lat']
         ret['lon']=float(self.gbest_pos[0])*self.delta['lon']
