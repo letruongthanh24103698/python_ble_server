@@ -10,7 +10,7 @@ from location import location_
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["iFactory"]
 mycol = mydb["rtlsbletest"]
-colRes = mydb['result2']
+colRes = mydb['result']
 colRes.delete_many({})
 result={}
 
