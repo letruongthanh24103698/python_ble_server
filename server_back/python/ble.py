@@ -28,8 +28,8 @@ class location:
             self.Confined_Area_Radius = 10.0
             self.Number_Of_Swarm = 300
         else:
-            self.Confined_Area_Radius = 3.0
-            self.Number_Of_Swarm = 100
+            self.Confined_Area_Radius = 10.0
+            self.Number_Of_Swarm = 300
         self.Iteration = 100
         self.delta = delta.copy()
         self.calib=calib.copy()

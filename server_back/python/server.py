@@ -125,9 +125,9 @@ class server:
                 if data['Mac'] in self.pathloss_kal:
                     for value in data['value']:
                         if self.pathloss_kal[data['Mac']]==0:
-                            self.pathloss_kal[data['Mac']]=value-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
+                            self.pathloss_kal[data['Mac']]=value#-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
                         else:
-                            R_correct=value-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
+                            R_correct=value#-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
                             if value==0:
                                 R_correct=self.pathloss_kal[data['Mac']]
                             self.pathloss_kal[data['Mac']]=self.est.estimate(R_correct,self.pathloss_kal[data['Mac']])
@@ -138,9 +138,9 @@ class server:
                 if data['Mac'] in self.tag_kal:
                     for value in data['value']:
                         if self.tag_kal[data['Mac']]==0:
-                            self.tag_kal[data['Mac']]=value-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
+                            self.tag_kal[data['Mac']]=value#-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
                         else:
-                            R_correct=value-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
+                            R_correct=value#-(self.gateway[data['Mac']][cnt]-self.gateway_kal[data['Mac']][cnt])#self.gateway_sum[data['Mac']][cnt]/self.gateway_count[data['Mac']][cnt])
                             if value==0:
                                 R_correct=self.tag_kal[data['Mac']]
                             self.tag_kal[data['Mac']]=self.est.estimate(R_correct,self.tag_kal[data['Mac']])
