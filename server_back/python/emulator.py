@@ -27,7 +27,7 @@ for data in cursor:
         json.dump(init_json,json_file)
     tmp=json.loads(process())
     init_json=tmp['json'][0]
-    if x['name']=='tag_home' and cnt>500:
+    if x['name']=='tag_home' and cnt>50:
         with open('location_tag.kal.txt','w') as json_file:
             json.dump(tmp['json'][1],json_file)
         with open('location_pathloss.kal.txt','w') as json_file:
@@ -52,8 +52,9 @@ for data in cursor:
         #print(tmp)
         init_json['Tag']['location']=tmp[0].copy()
         temp=tmp[0].copy()
-        temp['lat']=temp['lat']/delta['lat']
-        temp['lon']=temp['lon']/delta['lon']
+        if not (tmp[0] is None):
+            temp['lat']=temp['lat']/delta['lat']
+            temp['lon']=temp['lon']/delta['lon']
         print(temp)
 
         for idx in init_json['Tag']['value']:

@@ -287,15 +287,18 @@ class location:
         ret['lat']=float(self.gbest_pos[1])*self.delta['lat']
         ret['lon']=float(self.gbest_pos[0])*self.delta['lon']
         ret['alt']=0*self.delta['alt']
-        print(self.tag_best)
-        print(self.dis_best)
-        print(self.adjust_best)
+        #print(self.tag_best)
+        #print(self.dis_best)
+        #print(self.adjust_best)
         dis={}
         for idx in self.ble_location:
             #a=self.gbest_pos[0]-self.ble_location[idx]['lon']
             #b=self.gbest_pos[1]-self.ble_location[idx]['lat']
             #dis[idx]=self.cal_dis(a,b)
-            dis[idx]=self.dis_best[self.pos[idx]][1]
+            if (self.dis_best is None):
+                dis[idx]=0
+            else:
+                dis[idx]=self.dis_best[self.pos[idx]][1]
         result=[ret, dis]
         return json.dumps(result)
         
