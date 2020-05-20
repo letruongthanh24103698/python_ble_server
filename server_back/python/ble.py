@@ -94,11 +94,11 @@ class location:
         #self.distance_tag=self.distance_temp
 
         self.tag_loc=tag_location
-        for idx in self.tag:
-            if self.tag[idx]<self.pathloss[idx]-1.0:
-                self.tag[idx]=self.tag[idx]+0.5
-            elif self.tag[idx]>self.pathloss[idx]+1.0:
-                self.tag[idx]=self.tag[idx]-0.5
+        #for idx in self.tag:
+        #    if self.tag[idx]<self.pathloss[idx]-1.0:
+        #        self.tag[idx]=self.tag[idx]+0.5
+        #    elif self.tag[idx]>self.pathloss[idx]+1.0:
+        #        self.tag[idx]=self.tag[idx]-0.5
 
     def cal_dis(self,a,b):
         tmp=math.sqrt(a**2+b**2)
