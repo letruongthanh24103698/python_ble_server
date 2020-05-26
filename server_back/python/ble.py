@@ -176,17 +176,18 @@ class location:
         self.distance_temp=[]
         #ret=self.pathloss_location
         ########################this line if for none adjust rssi########################
-        self.tag_temp=self.tag.copy()
-        ########################the code below is for adjust rssi########################
+        #self.tag_temp=self.tag.copy()
+        
         for idx in self.ble_location:
-            #angle_p=self.cal_angle(self.pathloss_loc,self.ble_location[idx],self.angle_ble[idx])
-            #angle_t=self.cal_angle(ret,self.ble_location[idx],self.angle_ble[idx])
-            #if not (self.tag_loc is None):
-            #    self.adjust_value[idx]=self.adjust(angle_p,angle_t,self.calib)
-            #    self.tag_temp[idx]=self.tag[idx]+self.adjust_value[idx]
-            #else:
-            #    self.tag_temp[idx]=self.tag[idx]
-
+        ########################the code below is for adjust rssi########################
+            angle_p=self.cal_angle(self.pathloss_loc,self.ble_location[idx],self.angle_ble[idx])
+            angle_t=self.cal_angle(ret,self.ble_location[idx],self.angle_ble[idx])
+            if not (self.tag_loc is None):
+                self.adjust_value[idx]=self.adjust(angle_p,angle_t,self.calib)
+                self.tag_temp[idx]=self.tag[idx]+self.adjust_value[idx]
+            else:
+                self.tag_temp[idx]=self.tag[idx]
+        ################################################################################
             p_exp=(self.pathloss[idx]-self.R1m)/(10.0*math.log10(self.distance_pathloss[idx]))
             if not (self.tag_loc is None):
                 tmp=self.R1m+10*math.log10(20)*p_exp
