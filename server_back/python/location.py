@@ -3,32 +3,46 @@ import sys
 from ble import location
 
 def location_():
-    with open('location_tag.kal.txt') as json_file:
-        tag_json=json.load(json_file)
+    #with open('location_tag.kal.txt') as json_file:
+    #    tag_json=json.load(json_file)
 
-    with open('location_pathloss.kal.txt') as json_file:
-        pathloss_json=json.load(json_file)
+    #with open('location_pathloss.kal.txt') as json_file:
+    #    pathloss_json=json.load(json_file)
         
-    with open('location_delta.txt') as json_file:
-        delta_json=json.load(json_file)
+    #with open('location_delta.txt') as json_file:
+    #    delta_json=json.load(json_file)
 
-    with open('location_loc.txt') as json_file:
-        loc_json=json.load(json_file)
+    #with open('location_loc.txt') as json_file:
+    #    loc_json=json.load(json_file)
 
-    with open('location_calib.txt') as json_file:
-        calib_json=json.load(json_file)
+    #with open('location_calib.txt') as json_file:
+    #    calib_json=json.load(json_file)
 
-    with open('location_pathloss.loc.txt') as json_file:
-        pathloss_loc_json=json.load(json_file)
+    #with open('location_pathloss.loc.txt') as json_file:
+    #    pathloss_loc_json=json.load(json_file)
 
-    with open('location_tag.loc.txt') as json_file:
-        tag_loc_json=json.load(json_file)
+    #with open('location_tag.loc.txt') as json_file:
+    #    tag_loc_json=json.load(json_file)
 
-    with open('location_R1m.txt') as json_file:
-        R1m_json=json.load(json_file)
+    #with open('location_R1m.txt') as json_file:
+    #    R1m_json=json.load(json_file)
 
-    with open('location_angle.ble.txt') as json_file:
-        angle_ble_json=json.load(json_file)
+    #with open('location_angle.ble.txt') as json_file:
+    #    angle_ble_json=json.load(json_file)
+
+    with open('location.txt') as json_file:
+        second_json=json.load(json_file)
+    
+    tag_json=second_json['tag_kal']
+    pathloss_json=second_json['pathloss_kal']
+    delta_json=second_json['delta']
+    loc_json=second_json['location']
+    calib_json=second_json['calib']
+    pathloss_loc_json=second_json['location_pathloss']
+    tag_loc_json=second_json['last_tag_location']
+    R1m_json=second_json['rssi1m']
+    angle_ble_json=second_json['angle_beacon']
+
         
     #get data from node.js
     #dis_json_str=sys.argv[1]

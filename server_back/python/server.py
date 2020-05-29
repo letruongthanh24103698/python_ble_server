@@ -181,8 +181,19 @@ class server:
         value_json['kalman']['R']=self.est.R
 
         ret_json={}
-        ret_json['json']=[value_json,self.tag_kal,self.pathloss_kal,self.location,self.delta,self.calib,self.location_pathloss,self.last_tag_location,self.rssi1m,self.angle_beacon]
-        
+        second_json={}
+        second_json['tag_kal']=self.tag_kal
+        second_json['pathloss_kal']=self.pathloss_kal
+        second_json['location']=self.location
+        second_json['delta']=self.delta
+        second_json['calib']=self.calib
+        second_json['location_pathloss']=self.location_pathloss
+        second_json['last_tag_location']=self.last_tag_location
+        second_json['rssi1m']=self.rssi1m
+        second_json['angle_beacon']=self.angle_beacon
+        #ret_json['json']=[value_json,self.tag_kal,self.pathloss_kal,self.location,self.delta,self.calib,self.location_pathloss,self.last_tag_location,self.rssi1m,self.angle_beacon]
+        ret_json['json']=[value_json.copy(),second_json.copy()]
+
         return json.dumps(ret_json)
 ####************************************************************************####
 

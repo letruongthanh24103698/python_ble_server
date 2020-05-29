@@ -7,7 +7,7 @@ from datetime import datetime
 from process import process
 from location import location_
 
-restart=0
+restart=1
 amount=0
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -47,26 +47,28 @@ for data in cursor:
         tmp=json.loads(process())
         init_json=tmp['json'][0].copy()
         if x['name']=='tag_home' and cnt>50:
-            with open('location_tag.kal.txt','w') as json_file:
+            with open('location.txt','w') as json_file:
                 json.dump(tmp['json'][1],json_file)
-            with open('location_pathloss.kal.txt','w') as json_file:
-                json.dump(tmp['json'][2],json_file)
-            with open('location_loc.txt','w') as json_file:
-                json.dump(tmp['json'][3],json_file)
-            with open('location_delta.txt','w') as json_file:
-                json.dump(tmp['json'][4],json_file)
-            with open('location_calib.txt','w') as json_file:
-                json.dump(tmp['json'][5],json_file)
-            with open('location_pathloss.loc.txt','w') as json_file:
-                json.dump(tmp['json'][6],json_file)
-            with open('location_tag.loc.txt','w') as json_file:
-                json.dump(tmp['json'][7],json_file)
-            with open('location_R1m.txt','w') as json_file:
-                json.dump(tmp['json'][8],json_file)
-            with open('location_angle.ble.txt','w') as json_file:
-                json.dump(tmp['json'][9],json_file)
+            #with open('location_tag.kal.txt','w') as json_file:
+            #    json.dump(tmp['json'][1][''],json_file)
+            #with open('location_pathloss.kal.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_loc.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_delta.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_calib.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_pathloss.loc.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_tag.loc.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_R1m.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
+            #with open('location_angle.ble.txt','w') as json_file:
+            #    json.dump(tmp['json'][1],json_file)
 
-            delta=tmp['json'][4]
+            delta=tmp['json'][1]['delta'].copy()
             tmp=json.loads(location_())
             #print(tmp)
             init_json['Tag']['location']=tmp[0].copy()
