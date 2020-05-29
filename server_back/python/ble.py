@@ -29,7 +29,7 @@ class location:
             self.Number_Of_Swarm = 300
         else:
             self.Confined_Area_Radius = 10.0
-            self.Number_Of_Swarm = 300
+            self.Number_Of_Swarm = 100
         self.Iteration = 100
         self.delta = delta.copy()
         self.calib=calib.copy()
@@ -111,7 +111,7 @@ class location:
             #return
             self.recalculate_dis(self.pathloss_loc['lon'],self.pathloss_loc['lat'])
             self.distance=self.distance_temp.copy()
-            print(self.distance)
+            #print(self.distance)
 
             A=[]
             b=[]
@@ -140,7 +140,7 @@ class location:
         else:
             self.Z_MLE=np.array([ [self.tag_loc['lon']], [self.tag_loc['lat']] ])
         #self.Z_MLE=np.array([ [2.43], [4.53] ])
-        print(self.Z_MLE)
+        #print(self.Z_MLE)
 
     def cal_angle(self,src,dst,angle):
         a2=0
